@@ -6,11 +6,12 @@
 
 This is the source code of my personal portfolio website, where I show my best work, what I build with, and how to reach me.
 
-🔗 **View the portfolio:** 
+🔗 **Live portfolio:** [portfolio-ebon-three-33.vercel.app](https://portfolio-ebon-three-33.vercel.app/)
 
-<!-- ✏️ Add a screenshot after deploying:
-![Portfolio preview](assets/preview.png)
--->
+<p align="center">
+  <img src="assets/preview-home.png" alt="Portfolio home page: hero and featured projects" width="48%" />
+  <img src="assets/preview-skills.png" alt="Portfolio skills and favourite topics sections" width="48%" />
+</p>
 
 ---
 
