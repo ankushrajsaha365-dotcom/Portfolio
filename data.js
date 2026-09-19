@@ -444,9 +444,10 @@ export const certificates = [];
 // ============================================================
 // SOCIAL / CONTACT LINKS
 // ✏️ ADD more when ready, e.g.:
-//   { label: "LinkedIn", icon: "badge", iconColor: "secondary", url: "https://linkedin.com/in/your-handle" },
+//   { label: "X (Twitter)", icon: "tag", iconColor: "primary-fixed-dim", url: "https://x.com/your-handle" },
 // ============================================================
 export const social = [
   { label: "GitHub", icon: "code", iconColor: "primary", url: "https://github.com/ankushrajsaha365-dotcom" },
+  { label: "LinkedIn", icon: "badge", iconColor: "secondary", url: "https://www.linkedin.com/in/ankush-raj-saha-365x/" },
   { label: "Email", icon: "mail", iconColor: "primary-container", url: "mailto:ankushrajsaha365@gmail.com" },
 ];
