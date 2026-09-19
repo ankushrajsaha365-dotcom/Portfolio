@@ -9,7 +9,7 @@ This is the source code of my personal portfolio website, where I show my best w
 🔗 **Live portfolio:** [portfolio-ebon-three-33.vercel.app](https://portfolio-ebon-three-33.vercel.app/)
 
 <p align="center">
-  <img src="assets/preview-home.png" alt="Portfolio home page: hero and featured projects" width="48%" />
+  <img src="assets/preview-home.png" alt="Portfolio home page" width="48%" />
   <img src="assets/preview-skills.png" alt="Portfolio skills and favourite topics sections" width="48%" />
 </p>
 
@@ -78,6 +78,7 @@ I'm always happy to talk about AI, code, and EdTech, or hear about a project ide
 
 - **Email:** [ankushrajsaha365@gmail.com](mailto:ankushrajsaha365@gmail.com)
 - **GitHub:** [@ankushrajsaha365-dotcom](https://github.com/ankushrajsaha365-dotcom)
+- **LinkedIn:** [Ankush Raj Saha](https://www.linkedin.com/in/ankush-raj-saha-365x/)
 
 ⚡ *Fun fact: my code runs on coffee, curiosity, and some music.*
 
