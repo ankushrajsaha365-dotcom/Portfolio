@@ -1,0 +1,211 @@
+/* style.css — Portfolio custom styles (non-Tailwind) */
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+* { scrollbar-width: none; }
+::-webkit-scrollbar { display: none; }
+
+/* ============================================================
+   SMOOTH SCROLL
+   ============================================================ */
+html { scroll-behavior: smooth; }
+
+/* ============================================================
+   DRAWER / SLIDE-OVER TRANSITIONS
+   ============================================================ */
+#project-drawer {
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(100%);
+}
+#project-drawer.drawer-open {
+  transform: translateX(0);
+}
+
+#drawer-backdrop {
+  transition: opacity 0.32s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+#drawer-backdrop.backdrop-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ============================================================
+   CERTIFICATE LIGHTBOX (native <dialog>)
+   ============================================================ */
+#cert-lightbox {
+  background: rgba(10, 14, 22, 0.92);
+  border: 1px solid rgba(58, 73, 75, 0.5);
+  border-radius: 1rem;
+  padding: 0;
+  max-width: min(680px, 96vw);
+  width: 100%;
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.7);
+}
+#cert-lightbox::backdrop {
+  background: rgba(10, 14, 22, 0.8);
+  backdrop-filter: blur(8px);
+  animation: backdropFadeIn 0.2s ease forwards;
+}
+@keyframes backdropFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+#cert-lightbox[open] {
+  animation: lightboxSlideIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes lightboxSlideIn {
+  from { opacity: 0; transform: scale(0.95) translateY(12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ============================================================
+   CARD RADIAL GLOW (DESIGN.md — Interactive Radial Glow)
+   Applied via JS: --mouse-x and --mouse-y CSS custom properties
+   ============================================================ */
+.project-card {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    480px circle at var(--mouse-x) var(--mouse-y),
+    rgba(0, 242, 254, 0.07),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.project-card:hover::before {
+  opacity: 1;
+}
+.project-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   MOBILE MENU TRANSITION
+   ============================================================ */
+#mobile-menu {
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+#mobile-menu.menu-open {
+  max-height: 400px;
+  opacity: 1;
+}
+
+/* ============================================================
+   LIGHT THEME OVERRIDES
+   Swaps the surface token scale so the same Tailwind class names
+   produce a light, readable palette without any HTML changes.
+   ============================================================ */
+html.light {
+  --tw-bg-surface: #f4f6fb;
+  --tw-text-on-surface: #0f131c;
+}
+
+html.light body {
+  background-color: #f4f6fb;
+  color: #1c2028;
+}
+
+html.light .bg-surface           { background-color: #f4f6fb !important; }
+html.light .bg-surface-dim       { background-color: #e8ebf5 !important; }
+html.light .bg-surface-bright    { background-color: #ffffff !important; }
+html.light .bg-surface-container-lowest { background-color: #edf0f8 !important; }
+html.light .bg-surface-container-low    { background-color: #e4e7f2 !important; }
+html.light .bg-surface-container        { background-color: #dde1ef !important; }
+html.light .bg-surface-container-high   { background-color: #d3d7e8 !important; }
+html.light .bg-surface-container-highest{ background-color: #c8ccdf !important; }
+
+html.light .text-on-surface         { color: #0f131c !important; }
+html.light .text-on-surface-variant { color: #3a4050 !important; }
+html.light .text-outline            { color: #5a6472 !important; }
+html.light .text-outline-variant    { color: #8896a2 !important; }
+
+html.light .border-outline-variant\/30,
+html.light .border-outline-variant  { border-color: rgba(58, 73, 75, 0.25) !important; }
+
+/* Primary/secondary/accent remain the same in light mode (they're already vibrant) */
+html.light .bg-surface\/80 { background-color: rgba(244, 246, 251, 0.85) !important; }
+
+/* ============================================================
+   NAV ACTIVE INDICATOR
+   ============================================================ */
+nav a[aria-current="page"] {
+  background-color: #262a33;
+  color: #e0fdff;
+}
+html.light nav a[aria-current="page"] {
+  background-color: #c8ccdf;
+  color: #0f131c;
+}
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+::selection {
+  background-color: #00f2fe;
+  color: #006a70;
+}
+
+/* ============================================================
+   CAROUSEL THUMBNAIL ACTIVE RING
+   ============================================================ */
+.thumb-btn.thumb-active {
+  opacity: 1;
+  outline: 2px solid #00f2fe;
+  outline-offset: 2px;
+}
+.thumb-btn:not(.thumb-active) {
+  opacity: 0.5;
+}
+
+/* ============================================================
+   TOPIC CARD ACCENT BAR HOVER
+   (Width expands from w-12 → full on group-hover via Tailwind,
+    but the transition needs a custom duration)
+   ============================================================ */
+.topic-accent-bar {
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 3rem;
+}
+.group:hover .topic-accent-bar {
+  width: 100%;
+}
+
+/* ============================================================
+   FOCUS VISIBLE (accessibility)
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid #00f2fe;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   BACK TO TOP BUTTON
+   ============================================================ */
+#back-to-top {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+}
+#back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
